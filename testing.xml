@@ -3,10 +3,10 @@
     <Version>2023-02-17</Version>
     <site>
       <sta3n>637</sta3n>
-      <name>Asheville</name>
+      <domain>asheville.med.va.gov</domain>
     </site>
      <site>
       <sta3n>999</sta3n>
-      <name>Testing</name>
+      <domain>testing.test.va.gov</domain>
     </site>
 </AppData>
