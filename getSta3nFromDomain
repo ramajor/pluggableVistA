@@ -1,0 +1,22 @@
+Function SiteNumber(varDomain) As String
+    Dim SiteRecord As Object
+    Dim childNode As IXMLDOMNode
+    Dim doc As MSXML2.DOMDocument60
+    Set doc = New MSXML2.DOMDocument60
+    doc.async = False
+    doc.Load ("https://raw.githubusercontent.com/ramajor/pluggableVistA/main/testing.xml")
+    Set SiteRecord = doc.selectSingleNode("//site[domain='" & varDomain & "']/sta3n") ' getting the sta3n for the record with the domain we pass
+    SiteNumber = SiteRecord.text
+End Function
+
+Sub GetByDomain()
+sSite = ThisTerminal.ConnectionSettingsSecureShell.HostAddress
+saTemp = Split(sSite, ".")
+saTemp = Filter(saTemp, saTemp(0), False)
+sSite = Join(saTemp, ".")
+domainAddress = LCase(sSite)
+sta3n = SiteNumber(domainAddress)
+
+Debug.Print sta3n
+
+End Sub
